@@ -1,16 +1,16 @@
-import { CommonModule } from '@angular/common';
-import { OnInit, Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
-import { ButtonModule } from 'primeng/button';
-import { ConversionService } from '../../services/conversion.service';
-import { Observable, tap } from 'rxjs';
+import { CommonModule } from "@angular/common";
+import { OnInit, Component, inject } from "@angular/core";
+import { Router } from "@angular/router";
+import { ButtonModule } from "primeng/button";
+import { ConversionService } from "../../services/conversion.service";
+import { Observable } from "rxjs";
 
 @Component({
-  selector: 'app-results',
+  selector: "app-results",
   standalone: true,
   imports: [CommonModule, ButtonModule],
-  templateUrl: './results.component.html',
-  styleUrl: './results.component.scss',
+  templateUrl: "./results.component.html",
+  styleUrl: "./results.component.scss",
 })
 export class ResultsComponent implements OnInit {
   private cs: ConversionService = inject(ConversionService);
@@ -21,7 +21,7 @@ export class ResultsComponent implements OnInit {
   }
 
   reset() {
-    this.router.navigate(['/converter']);
+    this.router.navigate(["/converter"]);
     this.cs.conversionResult$.next(null);
   }
 }

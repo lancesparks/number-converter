@@ -1,5 +1,5 @@
 import { Routes } from "@angular/router";
-import { DataGuard } from "./guard/data.guard";
+import { DataGuard } from "./guards/data.guard";
 
 export const routes: Routes = [
   {
@@ -9,8 +9,6 @@ export const routes: Routes = [
         (m) => m.ConverterComponent
       ),
   },
-  { path: "", redirectTo: "/converter", pathMatch: "full" },
-  { path: "**", redirectTo: "/converter", pathMatch: "full" },
   {
     path: "results",
     loadComponent: () =>
@@ -19,4 +17,6 @@ export const routes: Routes = [
       ),
     canActivate: [DataGuard],
   },
+  { path: "", redirectTo: "/converter", pathMatch: "full" },
+  { path: "**", redirectTo: "/converter", pathMatch: "full" },
 ];

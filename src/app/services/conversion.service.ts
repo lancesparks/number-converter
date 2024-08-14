@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Subject } from "rxjs";
-import { Conversion } from "../interface/conversion.interface";
+import { BehaviorSubject } from "rxjs";
+import { Conversion } from "../interfaces/conversion.interface";
 
 @Injectable({
   providedIn: "root",
