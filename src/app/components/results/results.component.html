@@ -1,0 +1,13 @@
+<div class="container">
+  <section class="resultsSection">
+    <div class="results">
+      <h3>RESULTS:</h3>
+      <span *ngIf="result$ | async as result">
+        {{ result | number : "1.2-2" }}
+      </span>
+    </div>
+    <div class="buttonContainer">
+      <p-button label="reset" severity="secondary" (click)="reset()" />
+    </div>
+  </section>
+</div>

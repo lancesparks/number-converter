@@ -1,0 +1,53 @@
+@import "../../../styles.scss";
+
+::ng-deep {
+  .p-button-label {
+    text-transform: uppercase;
+    font-size: rem(12);
+    font-weight: 500;
+  }
+}
+
+.container {
+  margin-top: rem(160);
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.converterSection {
+  padding: rem(16);
+  max-width: rem(420);
+  border-radius: 4px;
+  background: linear-gradient(180deg, #06402b, #023020);
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: rem(24) rem(80);
+}
+
+.converter {
+  &_label {
+    font-size: rem(15);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #e1eeeb;
+  }
+
+  &_input {
+    margin-top: rem(8);
+    height: rem(40);
+    outline: none;
+    width: 100%;
+  }
+}
+
+.buttonContainer {
+  margin-top: rem(32);
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  color: red;
+  font-size: rem(13);
+}

@@ -1,0 +1,31 @@
+<div class="container">
+  <section class="converterSection">
+    <form [formGroup]="converterForm">
+      <div class="inputContainer">
+        <label class="converter_label" for="converter">enter number:</label>
+        <input
+          type="text"
+          pInputText
+          id="converter"
+          class="converter_input"
+          (focusout)="resetErrors()"
+          formControlName="numberToConvert"
+        />
+
+        @if(this.converterForm.get('numberToConvert').hasError('invalidFormat')
+        && showError){
+        <span class="error"
+          >! Invalid number format, must be a number or end with k,m,b
+        </span>
+
+        } @if(this.converterForm.hasError('isBlank') && showError){
+        <span class="error">! Input must not be blank </span>
+
+        }
+      </div>
+      <div class="buttonContainer">
+        <p-button label="convert" severity="secondary" (click)="convert()" />
+      </div>
+    </form>
+  </section>
+</div>

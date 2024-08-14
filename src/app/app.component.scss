@@ -1,0 +1,16 @@
+@import "../styles.scss";
+
+.appHeader {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+
+  &_icon {
+    width: rem(102);
+  }
+
+  & > h1 {
+    color: #e1eeeb;
+  }
+}
