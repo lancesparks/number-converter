@@ -1,17 +1,17 @@
-import { OnInit, Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
-import { InputTextModule } from 'primeng/inputtext';
-import { ButtonModule } from 'primeng/button';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { InputValidator } from '../../validators/inputValidator';
-import { ConversionService } from '../../services/conversion.service';
+import { OnInit, Component, inject } from "@angular/core";
+import { Router } from "@angular/router";
+import { InputTextModule } from "primeng/inputtext";
+import { ButtonModule } from "primeng/button";
+import { FormBuilder, ReactiveFormsModule } from "@angular/forms";
+import { InputValidator } from "../../validators/inputValidator";
+import { ConversionService } from "../../services/conversion.service";
 
 @Component({
-  selector: 'app-converter',
+  selector: "app-converter",
   standalone: true,
   imports: [InputTextModule, ButtonModule, ReactiveFormsModule],
-  templateUrl: './converter.component.html',
-  styleUrl: './converter.component.scss',
+  templateUrl: "./converter.component.html",
+  styleUrl: "./converter.component.scss",
 })
 export class ConverterComponent implements OnInit {
   constructor() {}
@@ -21,14 +21,14 @@ export class ConverterComponent implements OnInit {
   public showError: boolean = false;
 
   converterForm = this.fb.group({
-    numberToConvert: ['', [InputValidator()]],
+    numberToConvert: ["", [InputValidator()]],
   });
 
   ngOnInit() {}
 
   convert() {
     const numToConvert = this.converterForm
-      .get('numberToConvert')
+      .get("numberToConvert")
       .value.toLowerCase();
 
     if (this.checkErrors(numToConvert)) {
@@ -37,29 +37,18 @@ export class ConverterComponent implements OnInit {
 
     this.cs.createConversion(numToConvert);
 
-    this.router.navigate(['/results']);
+    this.router.navigate(["/results"]);
   }
 
   checkErrors(numToConvert: string): boolean {
-    if (numToConvert === '') {
+    if (numToConvert === "") {
       this.converterForm.setErrors({ isBlank: true });
-      this.showError = true;
       return true;
     }
 
-    if (this.converterForm.get('numberToConvert')?.hasError('invalidFormat')) {
-      this.showError = true;
+    if (this.converterForm.get("numberToConvert")?.hasError("invalidFormat")) {
       return true;
     }
     return false;
-  }
-
-  resetErrors() {
-    if (
-      this.converterForm.get('numberToConvert')?.value === '' &&
-      this.showError
-    ) {
-      this.showError = false;
-    }
   }
 }

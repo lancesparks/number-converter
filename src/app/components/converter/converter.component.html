@@ -8,19 +8,15 @@
           pInputText
           id="converter"
           class="converter_input"
-          (focusout)="resetErrors()"
           formControlName="numberToConvert"
         />
 
         @if(this.converterForm.get('numberToConvert').hasError('invalidFormat')
-        && showError){
-        <span class="error"
+        ){<span class="error"
           >! Invalid number format, must be a number or end with k,m,b
         </span>
-
-        } @if(this.converterForm.hasError('isBlank') && showError){
+        } @if(this.converterForm.hasError('isBlank')){
         <span class="error">! Input must not be blank </span>
-
         }
       </div>
       <div class="buttonContainer">
